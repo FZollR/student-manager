@@ -6,6 +6,7 @@ import hu.nye.progkor.studentmanager.data.repository.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Implementation for Crud operations
@@ -23,8 +24,8 @@ public class InMemoryStudentRepository implements Repository<Student, Long> {
     }
 
     @Override
-    public Student getById(Long id) {
-        return STORAGE.get(id);
+    public Optional<Student> getById(Long id) {
+        return Optional.ofNullable(STORAGE.get(id));
     }
 
     @Override

@@ -3,9 +3,12 @@ package hu.nye.progkor.studentmanager.web.controller;
 import hu.nye.progkor.studentmanager.data.model.Student;
 import hu.nye.progkor.studentmanager.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 /**
  * Rest controller for Crud operations
  */
@@ -21,9 +24,10 @@ public class StudentManagerRestController {
     }
 
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Long id)
-    {
-        return studentService.retrieveStudentById(id);
+    public ResponseEntity<Student> getSongById(@PathVariable Long id) {
+        Optional<Student> student = studentService.retrieveStudentById(id);
+        return student.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping()

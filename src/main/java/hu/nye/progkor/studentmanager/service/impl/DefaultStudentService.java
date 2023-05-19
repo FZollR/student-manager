@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DefaultStudentService implements StudentService {
@@ -25,7 +26,7 @@ public class DefaultStudentService implements StudentService {
     }
 
     @Override
-    public Student retrieveStudentById(Long id) {
+    public Optional<Student> retrieveStudentById(Long id) {
         return studentRepository.getById(id);
     }
 

@@ -8,12 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import java.util.List;
+import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.mockito.BDDMockito.given;
-
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -48,11 +46,31 @@ class DefaultStudentServiceTest {
     }
 
     @Test
-    void retrieveStudentById() {
+    void retrieveStudentByIdShouldDelegateToTheRepoAndReturnFoundStudent() {
+        //Given
+        given(studentRepository.getById(STUDENT_ID)).willReturn(Optional.of(STUDENT));
+
+        //When
+        final Optional<Student> actual = underTest.retrieveStudentById((STUDENT_ID));
+
+        //Then
+        assertThat(actual,equalTo(STUDENT));
+        verify(studentRepository).getById(STUDENT_ID);
+        verifyNoMoreInteractions(studentRepository);
     }
 
     @Test
-    void retrieveAllStudents() {
+    void retrieveStudentByIdShouldDelegateToTheRepoAndReturnTheStudentFound() {
+        //Given
+        given(studentRepository.getAll()).willReturn(List.of(STUDENT));
+
+        //When
+        final List<Student> actual = underTest.retrieveAllStudents();
+
+        //Then
+        assertThat(actual,equalTo(List.of(STUDENT)));
+        verify(studentRepository).getAll();
+        verifyNoMoreInteractions(studentRepository);
     }
 
     @Test

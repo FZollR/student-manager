@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Student admission</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/student-manager/create}">
+                <div class="form-group">
+                    <h3>
+                        <label for="name">Student admission</label>
+                    </h3>
+                </div>
+                <div class="form-group">
+                    <label for="neptunCode">Neptuncode</label>
+                    <input type="text"
+                           id="neptunCode"
+                           th:name="neptunCode"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text"
+                           id="name"
+                           th:name="name"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="text"
+                           id="email"
+                           th:name="email"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="major">Major</label>
+                    <input type="text"
+                           id="major"
+                           th:name="major"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="semester">Semester</label>
+                    <input type="text"
+                           id="semester"
+                           th:name="semester"
+                           class="form-control"/>
+                </div>
+                <div class="mt-2">
+                <button class="btn btn-primary pt-2"
+                        type="submit"> Create
+                </button>
+                <a th:href="@{/student-manager}"
+                   class="btn btn-secondary pt-2"
+                   type="submit">Return to the list</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

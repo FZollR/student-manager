@@ -3,12 +3,13 @@ package hu.nye.progkor.studentmanager.service;
 import hu.nye.progkor.studentmanager.data.model.Student;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentService {
 
          Student createStudent(Student student);
 
-         Student retrieveStudentById(Long id);
+         Optional<Student> retrieveStudentById(Long id);
 
          List<Student> retrieveAllStudents();
 

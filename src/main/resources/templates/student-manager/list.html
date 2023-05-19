@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>List of the admissioned students</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h3 class="pt-5">List of the admissioned students</h3>
+<div class="mt-4 mb-3">
+    <a th:href="@{'/student-manager/create'}"
+       type="button"
+       class="btn btn-dark">Add a new student</a> </div>
+
+    <table class="table table-striped pt-5">
+        <caption>List of the admissioned student</caption>
+        <thread>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Neptuncode</th>
+                <th scope="col">Name</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Major</th>
+                <th scope="col">Semester</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="student: ${students}">
+            <th scope="row"
+                th:text="${student.id}"></th>
+            <td th:text="${student.neptunCode}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.major}"></td>
+            <td th:text="${student.semester}">
+            <td>
+             <a th:href="@{'/student-manager/' + ${student.id}}"
+                   type="button"
+                   class="btn btn-warning">Modify</a>
+                <a th:href="@{'/student-manager/' + ${student.id} + '/delete'}"
+                   type="button"
+                   class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
