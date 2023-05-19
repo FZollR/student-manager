@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ * Rest controller for Crud operations
+ */
 @RestController
 @RequestMapping("/api/v1/student")
 public class StudentManagerRestController {
