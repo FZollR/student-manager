@@ -1,4 +1,4 @@
-package hu.nye.progkor.studentmanager.web;
+package hu.nye.progkor.studentmanager.web.controller;
 
 import hu.nye.progkor.studentmanager.data.model.Student;
 import hu.nye.progkor.studentmanager.service.StudentService;

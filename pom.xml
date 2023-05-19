@@ -79,7 +79,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<!--
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -108,6 +108,11 @@
 				</executions>
 				<configuration>
 					<excludes>
+						<exclude>hu\nye\progkor\studentmanager\data\model\**</exclude>
+						<exclude>hu\nye\progkor\studentmanager\web\controller\**</exclude>
+						<exclude>hu\nye\progkor\studentmanager\StudentManagerApplication.class</exclude>
+						<exclude>hu\nye\progkor\studentmanager\data\repository\**</exclude>
+						<exclude>hu\nye\progkor\studentmanager\web\configuration\**</exclude>
 						<exclude>*Test</exclude>
 					</excludes>
 					<rules>
@@ -128,7 +133,7 @@
 						</rule>
 					</rules>
 				</configuration>
-			</plugin> -->
+			</plugin>
  		<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
