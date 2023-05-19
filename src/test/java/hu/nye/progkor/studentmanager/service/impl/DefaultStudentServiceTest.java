@@ -54,7 +54,7 @@ class DefaultStudentServiceTest {
         final Optional<Student> actual = underTest.retrieveStudentById((STUDENT_ID));
 
         //Then
-        assertThat(actual,equalTo(STUDENT));
+        assertThat(actual,equalTo(Optional.of(STUDENT)));
         verify(studentRepository).getById(STUDENT_ID);
         verifyNoMoreInteractions(studentRepository);
     }
