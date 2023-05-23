@@ -62,8 +62,8 @@ public class StudentManagerController {
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateStudent(Model model, Student student)
     {
-        Student updatedSong = studentService.updateStudent(student);
-        model.addAttribute("student", updatedSong);
+        Student updatedStudent= studentService.updateStudent(student);
+        model.addAttribute("student", updatedStudent);
         return "student-manager/edit";
     }
 
@@ -71,7 +71,8 @@ public class StudentManagerController {
     public String deleteStudentById(Model model, @PathVariable Long id)
     {
         studentService.deleteStudentById(id);
-        List<Student> allSongs = studentService.retrieveAllStudents();
+        List<Student> allStudent = studentService.retrieveAllStudents();
+        model.addAttribute("students", allStudent);
         return "student-manager/list";
     }
 

@@ -24,7 +24,7 @@ public class StudentManagerRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Student> getSongById(@PathVariable Long id) {
+    public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
         Optional<Student> student = studentService.retrieveStudentById(id);
         return student.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -47,7 +47,8 @@ public class StudentManagerRestController {
     {
         return studentService.updateStudent(student);
     }
-    @DeleteMapping
+
+    @DeleteMapping("/{id}")
     public void deleteStudentById(@PathVariable Long id)
     {
        studentService.deleteStudentById(id);

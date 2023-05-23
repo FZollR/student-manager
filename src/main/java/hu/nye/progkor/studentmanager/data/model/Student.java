@@ -14,6 +14,11 @@ public class Student {
     private String major;
     private Semester semester;
 
+    public Student()
+    {
+
+    }
+
     public Student(Long id, String neptunCode, String name, String email, String major, Semester semester) {
         this.id = id;
         this.neptunCode = neptunCode;
@@ -74,13 +79,35 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Student student = (Student) o;
-        return  Objects.equals(id, student.id) &&
-                Objects.equals(neptunCode, student.neptunCode) &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(email, student.email) &&
-                Objects.equals(major, student.major) &&
-                Objects.equals(semester, student.semester);
+
+        if(!Objects.equals(id, student.id))
+        {
+            return false;
+        }
+        if(!Objects.equals(neptunCode, student.neptunCode))
+        {
+            return false;
+        }
+
+        if(!Objects.equals(name, student.name))
+        {
+            return false;
+        }
+        if(!Objects.equals(email, student.email))
+        {
+            return false;
+        }
+        if(!Objects.equals(major, student.major))
+        {
+            return false;
+        }
+        if(!Objects.equals(semester, student.semester))
+        {
+            return false;
+        }
+        return semester == student.semester;
     }
 
     @Override
