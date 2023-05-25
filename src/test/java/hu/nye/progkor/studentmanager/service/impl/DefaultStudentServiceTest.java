@@ -16,7 +16,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 class DefaultStudentServiceTest {
-   private static final Long STUDENT_ID = 1L;
+    private static final Long STUDENT_ID = 1L;
     private static final Student STUDENT = new Student(1L, "VUR1JV",
             "Fábri Zoltán", "darkfabri@gmail.hu", "Programtervező info", Semester.FIRST);
 
@@ -26,11 +26,11 @@ class DefaultStudentServiceTest {
     private StudentService underTest;
 
     @BeforeEach
-    void setup()
-    {
+    void setup() {
         MockitoAnnotations.openMocks(this);
         underTest = new DefaultStudentService(studentRepository);
     }
+
     @Test
     void createStudentShouldDelegateToTheRepositoryThenReturnTheStudentWhichIsSaved() {
         //Given
@@ -40,7 +40,7 @@ class DefaultStudentServiceTest {
         final Student actual = underTest.createStudent(STUDENT);
 
         //Then
-        assertThat(actual,equalTo(STUDENT));
+        assertThat(actual, equalTo(STUDENT));
         verify(studentRepository).save(STUDENT);
         verifyNoMoreInteractions(studentRepository);
     }
@@ -54,7 +54,7 @@ class DefaultStudentServiceTest {
         final Optional<Student> actual = underTest.retrieveStudentById((STUDENT_ID));
 
         //Then
-        assertThat(actual,equalTo(Optional.of(STUDENT)));
+        assertThat(actual, equalTo(Optional.of(STUDENT)));
         verify(studentRepository).getById(STUDENT_ID);
         verifyNoMoreInteractions(studentRepository);
     }
@@ -68,16 +68,8 @@ class DefaultStudentServiceTest {
         final List<Student> actual = underTest.retrieveAllStudents();
 
         //Then
-        assertThat(actual,equalTo(List.of(STUDENT)));
+        assertThat(actual, equalTo(List.of(STUDENT)));
         verify(studentRepository).getAll();
         verifyNoMoreInteractions(studentRepository);
-    }
-
-    @Test
-    void updateStudent() {
-    }
-
-    @Test
-    void deleteStudentById() {
     }
 }

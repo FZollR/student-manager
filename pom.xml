@@ -134,47 +134,6 @@
 					</rules>
 				</configuration>
 			</plugin>
- 		<!--
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.2.1</version>
-				<dependencies>
-					<dependency>
-						<groupId>com.puppycrawl.tools</groupId>
-						<artifactId>checkstyle</artifactId>
-						<version>10.9.3</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<consoleOutput>true</consoleOutput>
-					<configLocation>google_checks.xml</configLocation>
-					<violationSeverity>warning</violationSeverity>
-					<violationIgnore>
-						Indentation,
-						CustomImportOrder,
-						DesignForExtension,
-						HiddenField,
-						HideUtilityClassConstructor,
-						JavadocPackage,
-						JavadocVariable
-					</violationIgnore>
-					<excludes>
-						**/model/**/*,
-						**/MusicCatalogApplication.java
-					</excludes>
-				</configuration>
-				<executions>
-					<execution>
-						<id>check-google-checks</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
-
 		</plugins>
 	</build>
 
