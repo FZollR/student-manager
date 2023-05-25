@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Interface for Crud operations
+ * Interface for Crud operations.
  */
-public interface Repository<T, ID>{
+public interface Repository<T, ID> {
     T save(T item);
 
     Optional<T> getById(ID id);

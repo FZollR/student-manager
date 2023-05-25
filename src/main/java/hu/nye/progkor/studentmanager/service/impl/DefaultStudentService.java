@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This is a service class for student-manager.
+ */
 @Service
 public class DefaultStudentService implements StudentService {
 
-    private final Repository<Student,Long> studentRepository;
+    private final Repository<Student, Long> studentRepository;
 
     @Autowired
     public DefaultStudentService(Repository<Student, Long> studentRepository) {
